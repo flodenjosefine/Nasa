@@ -1,2 +1,2 @@
 # Nasa
-This is a school assigment with the purpose of using NASA API
+This is a schoolassigment with the purpose of using NASA API key
