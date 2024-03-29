@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="sv">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300..800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <title>Nasa</title>
+</head>
+
+<body>
+
+    <header>
+        <div class="headline">
+            <h1>Nasa mars rovers</h1>
+        </div>
+
+
+        <label class="switchBtn">
+            <input type="checkbox" id="switchBtn">
+            <span class="slider round"></span>
+        </label>
+
+
+
+    </header>
+
+    <section class="main-container">
+        <!-- form runt formulärsfältet, sätter autocomplete off för att vi inte vill ha förslag -->
+        <form action="" id="name-form" autocomplete="off">
+            <h2>Choose your Space Name</h2>
+            <!-- för varje inputfält ska det finnas ett id och en label med en matchande for -->
+            <label for="spaceName">Space Name (must be 3 characters) </label>
+            <input id="spaceName" type="text" placeholder="Pick your space name">
+            <button id="sendBtn" type="submit" disabled>Accept top secret mission</button>
+        </form>
+    </section>
+
+    <!-- targetar i js så att det sen står välkommen och sen namnet man fyllt i -->
+    <p id="resultElement"></p>
+
+    <!-- container for card -->
+    <div class="card-container" id="curiosity"></div>
+    <!-- script filen längst ner i bodyn -->
+    <script src="script.js"></script>
+
+</body>
+
+</html>

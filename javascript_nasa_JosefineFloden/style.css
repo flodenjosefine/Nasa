@@ -1,0 +1,199 @@
+@charset "UTF-8";
+*,
+html {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Open Sans", sans-serif;
+  background-color: rgb(255, 243, 255);
+  color: #070d3a;
+}
+
+h1 {
+  text-transform: uppercase;
+}
+
+h3 {
+  text-align: center;
+  padding-bottom: 1rem;
+}
+
+header {
+  background-color: rgb(215, 194, 229);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem 2rem;
+  /* switch - Boxen runt slider */
+}
+header .switchBtn {
+  position: relative;
+  display: inline-lock;
+  width: 50px;
+  height: 28px;
+  /* Gömmer default HTML checkbox */
+  /* slider */
+}
+header .switchBtn input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+header .switchBtn input:checked + .slider {
+  background-color: rgb(233, 233, 233);
+}
+header .switchBtn input:checked + .slider:before {
+  transform: translateX(23px);
+  background-color: #070d3a;
+}
+header .switchBtn input:focus + .slider {
+  box-shadow: 0 0 2px #070d3a;
+}
+header .switchBtn .slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #070d3a;
+  border-radius: 34px;
+  transition: 0.4s;
+}
+header .switchBtn .slider:before {
+  position: absolute;
+  content: "";
+  height: 20px;
+  width: 20px;
+  left: 4px;
+  bottom: 4px;
+  background-color: rgb(233, 233, 233);
+  border-radius: 50%;
+  transition: 0.4s;
+}
+
+.main-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.main-container #name-form {
+  max-width: 550px;
+  margin: 3rem 1rem;
+  background-color: rgb(215, 194, 229);
+  padding: 2rem;
+  border-radius: 10px;
+}
+.main-container #name-form h2 {
+  text-align: center;
+  display: block;
+  font-weight: 700;
+  font-size: 2rem;
+  margin-bottom: 1.2rem;
+}
+.main-container #name-form input,
+.main-container #name-form button {
+  display: block;
+  width: 100%;
+  padding: 1rem;
+  border-radius: 4px;
+  border: none;
+  border: 4px solid transparent;
+}
+.main-container #name-form label {
+  display: block;
+  font-weight: 700;
+  color: #070d3a;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+.main-container #name-form input {
+  margin-bottom: 2rem;
+  font-family: "Open Sans", sans-serif;
+  font-size: 1rem;
+  border-bottom: 4px solid rgb(196, 196, 196);
+}
+.main-container #name-form input::-moz-placeholder {
+  font-family: "Open Sans", sans-serif;
+}
+.main-container #name-form input::placeholder {
+  font-family: "Open Sans", sans-serif;
+}
+.main-container #name-form input.focusBorder {
+  outline: none;
+  border: 4px outset hotpink;
+}
+.main-container #name-form button {
+  background-color: hotpink;
+  color: white;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 700;
+  transition: 0.5s;
+  text-transform: uppercase;
+}
+.main-container #name-form button:disabled {
+  background-color: lightgrey;
+  font-weight: 600;
+  color: #070d3a;
+  cursor: not-allowed;
+}
+
+#curiosity {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+@media (min-width: 995px) {
+  #curiosity {
+    max-width: 995px;
+    margin: auto;
+  }
+}
+@media (min-width: 1328px) {
+  #curiosity {
+    max-width: 1328px;
+    margin: auto;
+  }
+}
+#curiosity .nasa-card {
+  border: 1px solid lightgrey;
+  background-color: white;
+  border-radius: 5px;
+  margin: 1rem;
+  padding: 1rem;
+  width: 300px;
+}
+#curiosity .nasa-card img {
+  width: 100%;
+  border-radius: 5px;
+}
+#curiosity .nasa-card p {
+  text-align: center;
+}
+
+#resultElement {
+  color: hotpink;
+  font-size: 2rem;
+  font-weight: 700;
+  text-align: center;
+}
+
+.dark {
+  background-color: #070d3a;
+  color: rgb(233, 233, 233);
+}
+.dark header {
+  background-color: #0c1768;
+}
+.dark #name-form {
+  background-color: #0c1768;
+}
+.dark #name-form label {
+  color: rgb(233, 233, 233);
+}
+.dark .nasa-card {
+  color: #070d3a;
+}/*# sourceMappingURL=style.css.map */

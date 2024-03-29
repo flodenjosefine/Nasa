@@ -1,0 +1,301 @@
+$lightmode-surface: rgb(255, 243, 255);
+$lightmode-surface-secondary: rgb(215, 194, 229);
+$lightmode-text: #070d3a;
+$darkmode-surface: #070d3a;
+$darkmode-surface-secondary: lighten(#070d3a, 10%);
+$darkmode-text: rgb(233, 233, 233);
+$brand: hotpink;
+
+*,
+
+html {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Open Sans", sans-serif;
+    background-color: $lightmode-surface;
+    color: $lightmode-text;
+
+
+
+}
+
+
+h1 {
+    //stora bokstäver
+    text-transform: uppercase;
+}
+
+h3 {
+    //text centrerat
+    text-align: center;
+    padding-bottom: 1rem;
+}
+
+header {
+    background-color: $lightmode-surface-secondary;
+    display: flex;
+    justify-content: space-between;
+    //så att knappen hamnar i mitten av sin box
+    align-items: center;
+    padding: 2rem 2rem;
+
+    // Hittas på https://www.w3schools.com/howto/howto_css_switch.asp
+    /* switch - Boxen runt slider */
+
+
+    .switchBtn {
+        position: relative;
+        display: inline-lock;
+        width: 50px;
+        height: 28px;
+
+
+        /* Gömmer default HTML checkbox */
+        input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+
+            &:checked {
+
+                //När den är i kryssad 
+                // https://www.w3schools.com/cssref/sel_element_pluss.asp
+                + {
+                    .slider {
+                        //Gör detta med slider som är Lila bg 
+                        background-color: $darkmode-text;
+
+                        &:before {
+                            //Påverkar cirkeln
+                            transform: translateX(23px); //hur långt cirkel förflyttar sig
+                            background-color: $darkmode-surface;
+                        }
+                    }
+                }
+            }
+
+            &:focus {
+
+                //När den är markerad klickad på
+                + {
+                    .slider {
+                        //Väljer alla .slider som är placerade direkt efter input
+                        //Skugga när man klickar
+                        box-shadow: 0 0 2px $darkmode-surface;
+                    }
+                }
+            }
+        }
+
+        /* slider */
+        .slider {
+            //Lila BG 
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: $darkmode-surface;
+            border-radius: 34px;
+            transition: .4s;
+
+            &:before {
+                //Cirkeln i slider
+                position: absolute;
+                content: "";
+                height: 20px;
+                width: 20px;
+                left: 4px;
+                bottom: 4px;
+                background-color: $darkmode-text;
+                border-radius: 50%;
+                transition: .4s;
+            }
+        }
+    }
+
+
+}
+
+.main-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    #name-form {
+
+        max-width: 550px;
+        //name-form boxen lägger sig i mitten och har 3rem luft uppe och nere
+        margin: 3rem 1rem;
+        background-color: $lightmode-surface-secondary;
+        padding: 2rem;
+        border-radius: 10px;
+
+
+        h2 {
+            text-align: center;
+            //vill lägga på margin
+            display: block;
+            font-weight: 700;
+            font-size: 2rem;
+            margin-bottom: 1.2rem;
+        }
+
+        //Input och button
+        input,
+        button {
+            //så att de beter sig som block element, hamnar på olika rader
+            display: block;
+            //tar upp 100% på sin rad
+            width: 100%;
+            padding: 1rem;
+            border-radius: 4px;
+            border: none;
+            border: 4px solid transparent;
+
+        }
+
+        label {
+            //sträcker sig över den tillåtna bredden
+            display: block;
+            font-weight: 700;
+            color: $lightmode-text;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        input {
+            margin-bottom: 2rem;
+            font-family: "Open Sans", sans-serif;
+            font-size: 1rem;
+            border-bottom: 4px solid rgb(196, 196, 196);
+
+            &::placeholder {
+                font-family: "Open Sans", sans-serif;
+            }
+
+            //klassen som fungerar med js runt input
+            &.focusBorder {
+                //för att ta bort default focus
+                outline: none;
+                //ersätter med border-bottom stylen
+                border: 4px outset $brand;
+            }
+        }
+
+        button {
+            background-color: $brand;
+            color: white;
+            font-family: "Open Sans", sans-serif;
+            font-weight: 700;
+            transition: 0.5s;
+            text-transform: uppercase;
+
+
+
+            // Stylar när knappen är disabled
+            &:disabled {
+                background-color: lightgrey;
+                font-weight: 600;
+                color: $lightmode-text;
+                cursor: not-allowed;
+            }
+
+
+        }
+
+    }
+
+
+}
+
+#curiosity {
+    //för att få korten i mitten på en rad
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    //Jag vill att korten ska hålla sin bredd och inte gå mellan två spalt så att ett kort blir ensamt
+
+    @media (min-width:995px) {
+        max-width: 995px;
+        margin: auto;
+
+    }
+
+    @media (min-width:1328px) {
+        max-width: 1328px;
+        margin: auto;
+
+    }
+
+
+
+    .nasa-card {
+
+        border: 1px solid lightgrey;
+        background-color: white;
+        border-radius: 5px;
+        margin: 1rem;
+        padding: 1rem;
+        width: 300px;
+
+
+
+        img {
+            width: 100%;
+            border-radius: 5px;
+
+        }
+
+        p {
+            text-align: center;
+        }
+
+
+
+
+    }
+}
+
+
+#resultElement {
+    color: $brand;
+    font-size: 2rem;
+    font-weight: 700;
+    text-align: center;
+
+}
+
+// Skapa upp en klass för darkmode 
+.dark {
+
+    header {
+        background-color: $darkmode-surface-secondary;
+
+    }
+
+    background-color: $darkmode-surface;
+    color: $darkmode-text;
+
+    #name-form {
+        background-color: $darkmode-surface-secondary;
+
+        label {
+            color: $darkmode-text;
+
+        }
+
+    }
+
+    .nasa-card {
+        color: $lightmode-text;
+    }
+
+
+}
